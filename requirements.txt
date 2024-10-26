@@ -1,0 +1,6 @@
+streamlit
+pandas
+datetime
+snowflake
+streamlit-client-timezone==0.1.5
+snowflake-snowpark-python
