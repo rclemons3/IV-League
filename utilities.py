@@ -13,17 +13,17 @@ def get_affiliate_options(session):
     # get our names with a sql statement
     try:
         affiliate_df = session.sql(
-            "SELECT affiliate_name, affiliate_id FROM hc_girls_inc.refined.VW_DIM_ACTIVE_AFFILIATE"
+            "SELECT  FROM "
         )
         # the previous statement returned a Snowflake DataFrame, but Pandas is easier to work with, so get that instead
         affiliate_df = affiliate_df.to_pandas()
     except Exception as e:
         display_error_message(e, "fetch affiliate options")
-        affiliate_df = pd.DataFrame(columns=["AFFILIATE_NAME", "AFFILIATE_ID"])
+        affiliate_df = pd.DataFrame(columns=["", ""])
 
     # For some reason the resulting list contains all of the data in a seemingly random order, so sort the list to make
     # sure the options appear in the same order every time
-    return affiliate_df.sort_values(by=["AFFILIATE_NAME"])
+    return _df.sort_values(by=[""])
 
 
 # Returns the posible engagement type options for the user to choose from.
