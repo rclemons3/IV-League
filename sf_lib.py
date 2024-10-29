@@ -32,7 +32,7 @@ def sf_conn():
     #connection_parameters["password"] = getenv('DS_SNOWFLAKE_PASSWORD')
     
     #else:
-     #   with open('/Users/rick.clemons/Girls/affiliate-engagement-app/creds.json') as f:
+     #   with open('/Users/rick.clemons/') as f:
       #      connection_parameters = json.load(f)
 
     session = Session.builder.configs(connection_parameters).create()
