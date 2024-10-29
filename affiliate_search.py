@@ -25,7 +25,6 @@ def load_search_data(
                 USERPRINCIPALNAME
                 
             FROM 
-                hc_girls_inc.refined.user_affiliate_xref
             
         """
 
