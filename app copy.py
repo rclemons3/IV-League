@@ -26,7 +26,7 @@ if not "user_id" in st.session_state.keys():
         st.session_state["user_id"] = st.context.headers["X-Ms-Client-Principal-Name"]
     else:
         #st.session_state["user_id"] = ""
-        st.session_state["user_id"] = "rick.clemons@moser-inc.com"
+        st.session_state["user_id"] = ""
 
 # Ensure user is logged in
 if st.session_state.user_id == "":
@@ -75,8 +75,8 @@ else:
         """Insert form data into Snowflake"""
         try:
             insert_query = f"""
-            INSERT INTO HC_GIRLS_INC.REFINED.USER_AFFILIATE_XREF
-            (Fname,Lname, email, phone, affiliate, submission_time)
+            INSERT INTO 
+            (Fname,Lname, email, phone, submission_time)
             VALUES (?, ?, ?, ?, ?, ?)
             """
             # Use session.sql() method to execute the query
@@ -97,7 +97,7 @@ else:
     def display_results(session):
         """Display results from Snowflake"""
         try:
-            query = "SELECT * FROM HC_GIRLS_INC.REFINED.USER_AFFILIATE_XREF ORDER BY submission_time DESC LIMIT 10"
+            query = "SELECT * FROM  ORDER BY submission_time DESC LIMIT 10"
             df = pd.read_sql(query, session)
             st.dataframe(df)
         except Exception as e:
